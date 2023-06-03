@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.view.controller.Videoplayer">
+    <Button fx:id="homepageButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#backToHomepage" text="Főoldal" />
+    <TextField fx:id="videoSearchTextField" layoutX="300.0" layoutY="15.0" prefHeight="25.0" prefWidth="350.0" promptText="Video kereső" />
+    <Button fx:id="searchButton" layoutX="660.0" layoutY="15.0" mnemonicParsing="false" onAction="#search" text="Keresés" />
+    <TableView fx:id="ajanlottVideoTableView" layoutX="1065.0" layoutY="15.0" maxHeight="695.0" maxWidth="200.0" minHeight="695.0" minWidth="200.0" prefHeight="695.0" prefWidth="200.0">
+        <columns>
+            <TableColumn fx:id="ajanlottVideoTableColumn" prefWidth="199.0" text="Ajánlott videók" />
+        </columns>
+    </TableView>
+    <MediaView fx:id="videoMediaPlayer" fitHeight="480.0" fitWidth="888.0" layoutX="90.0" layoutY="50.0" />
+    <TextArea fx:id="leirasTextArea" layoutX="725.0" layoutY="610.0" maxHeight="480.0" maxWidth="325.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="325.0" />
+    <Label fx:id="videoCimLabel" layoutX="90.0" layoutY="535.0" maxHeight="25.0" maxWidth="400.0" minHeight="25.0" minWidth="400.0" prefHeight="25.0" prefWidth="400.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Button fx:id="likeButton" layoutX="592.0" layoutY="573.0" mnemonicParsing="false" onAction="#like" text="Kedvelem" />
+    <Label fx:id="likeCountLabel" layoutX="665.0" layoutY="575.0" maxHeight="20.0" maxWidth="50.0" minHeight="20.0" minWidth="50.0" prefHeight="20.0" prefWidth="50.0" text="0" textAlignment="CENTER" />
+    <TextField fx:id="kommentTextfield" layoutX="16.0" layoutY="573.0" prefHeight="25.0" prefWidth="380.0" promptText="Komment" />
+    <Button fx:id="kommentSubmitButton" layoutX="517.0" layoutY="573.0" mnemonicParsing="false" onAction="#sendKomment" text="Küldés" />
+    <TableView fx:id="osszesKommentTableView" layoutX="15.0" layoutY="610.0" maxHeight="100.0" maxWidth="700.0" minHeight="100.0" minWidth="700.0" prefHeight="100.0" prefWidth="700.0">
+        <columns>
+            <TableColumn fx:id="kommenteloTableColumn" prefWidth="150.0" text="Kommentelo" />
+            <TableColumn fx:id="kommentTartalomTableColumn" prefWidth="550.0" text="Komment" />
+        </columns>
+    </TableView>
+    <TextField fx:id="kommentUsernameTextField" layoutX="407.0" layoutY="573.0" prefHeight="25.0" prefWidth="99.0" promptText="Felhasznalonev" />
+    <Label fx:id="uploaderLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="670.0" layoutY="538.0" maxHeight="20.0" maxWidth="310.0" minHeight="20.0" minWidth="310.0" prefHeight="20.0" prefWidth="310.0" textAlignment="RIGHT">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <Button layoutX="76.0" layoutY="15.0" mnemonicParsing="false" onAction="#refreshTable" text="Frissít" />
+    <Label fx:id="viewCount" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="825.0" layoutY="568.0" maxHeight="15.0" maxWidth="155.0" minHeight="15.0" minWidth="155.0" prefHeight="15.0" prefWidth="155.0">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+
+</AnchorPane>

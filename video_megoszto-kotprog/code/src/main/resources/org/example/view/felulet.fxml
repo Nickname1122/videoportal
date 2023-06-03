@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<TitledPane fx:id="mainWindow" animated="false" maxHeight="400.0" maxWidth="700.0" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="600.0" text="OurTube" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.view.controller.HomePage">
+    <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Videók">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TableView fx:id="videosTableView" layoutX="200.0" layoutY="15.0" maxHeight="300.0" maxWidth="700.0" minHeight="300.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="videoStillPicColumn" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="StillKépp" />
+                        <TableColumn fx:id="videoTitleColumn" maxWidth="120.0" minWidth="75.0" prefWidth="120.0" text="Cím" />
+                        <TableColumn fx:id="videoViewColumn" maxWidth="120.0" minWidth="75.0" prefWidth="120.0" text="Megtekintés" />
+                        <TableColumn fx:id="videoCategoryColumn" maxWidth="120.0" minWidth="75.0" prefWidth="120.0" text="Kategória" />
+                        <TableColumn fx:id="videoDateColumn" maxWidth="120.0" minWidth="75.0" prefWidth="90.0" text="Dátum" />
+                        <TableColumn fx:id="videoUploaderColumn" maxWidth="120.0" minWidth="63.0" prefWidth="69.0" text="Feltöltő" />
+                        <TableColumn fx:id="videoElinditTabelC" prefWidth="78.0" text="Elindit" />
+                    </columns>
+                </TableView>
+                <Button layoutX="15.0" layoutY="310.0" mnemonicParsing="false" onAction="#refreshTable" text="Frissítés" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="Ajánlott videok">
+            <TableView fx:id="recommendVideo" maxWidth="600.0" minWidth="500.0" prefWidth="530.0">
+                <columns>
+                    <TableColumn fx:id="cim" maxWidth="530.0" minWidth="530.0" prefWidth="530.0" text="Cím" />
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab text="Video keresés">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                <Text layoutX="85.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mire szeretnél rákeresni? " />
+                <TextField fx:id="videoTextF" layoutX="237.0" layoutY="10.0" prefHeight="25.0" prefWidth="260.0" promptText="kiscicák" />
+                <TableView fx:id="videoKeresettTableView" layoutX="51.0" layoutY="73.0" prefHeight="260.0" prefWidth="400.0">
+                    <columns>
+                        <TableColumn fx:id="cimTabelC" prefWidth="160.0" text="Cím" />
+                        <TableColumn fx:id="datumTabelC" prefWidth="120.0" text="Dátum" />
+                        <TableColumn fx:id="feltoltoTabelC" prefWidth="120.0" text="Feltöltő" />
+                    </columns>
+                </TableView>
+                <Button layoutX="526.0" layoutY="10.0" mnemonicParsing="false" onAction="#keresVideo" text="Search" />
+            </AnchorPane>
+        </Tab>
+        <Tab text="Felhasználo keresése">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                <Text layoutX="85.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kire szeretnél rákeresni?" />
+                <TextField fx:id="felhasznaloTextF" layoutX="237.0" layoutY="10.0" prefHeight="25.0" prefWidth="274.0" promptText="Németh G" />
+                <TableView fx:id="searchedUserTableView" layoutX="51.0" layoutY="73.0" prefHeight="260.0" prefWidth="462.0">
+                    <columns>
+                        <TableColumn fx:id="felhasznalonevTabelC" prefWidth="212.0" text="Felhasználo nev" />
+                        <TableColumn fx:id="emailTabelC" prefWidth="249.0" text="Email" />
+                    </columns>
+                </TableView>
+                <Button layoutX="526.0" layoutY="10.0" mnemonicParsing="false" onAction="#keresFelhasznalo" text="Search" />
+            </AnchorPane>
+        </Tab>
+        <Tab onSelectionChanged="#frissites" text="Lejátszási listák">
+            <TableView fx:id="listatListaz" prefHeight="200.0" prefWidth="200.0">
+                <columns>
+                    <TableColumn fx:id="listaNev" prefWidth="378.0" text="Lista neve" />
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab onSelectionChanged="#frissit" text="Profil">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <ImageView fitHeight="140.0" fitWidth="135.0" layoutX="30.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@blank_profil.png" />
+                </ImageView>
+                <Text layoutX="175.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="36.13671875" />
+                <Text layoutX="175.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
+                <Text layoutX="175.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+                <Text layoutX="27.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="videoim" />
+                <TableView fx:id="profilVideoTableView" layoutX="26.0" layoutY="134.0" prefHeight="200.0" prefWidth="347.0">
+                    <columns>
+                        <TableColumn fx:id="profilVideoTableColumn" prefWidth="100.0" text="Video" />
+                        <TableColumn fx:id="profilCimTableColumn" prefWidth="242.0" text="Cím" />
+                    </columns>
+                </TableView>
+                <Button defaultButton="true" layoutX="454.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertVideo" text="Új videó" />
+                <Label fx:id="profilUsernameLabel" layoutX="250.0" layoutY="15.0" maxHeight="15.0" maxWidth="75.0" minHeight="15.0" minWidth="75.0" prefHeight="15.0" prefWidth="75.0" />
+                <Label fx:id="profilBirthyearLabel" layoutX="250.0" layoutY="55.0" maxHeight="15.0" maxWidth="75.0" minHeight="15.0" minWidth="75.0" prefHeight="15.0" prefWidth="75.0" />
+                <Label fx:id="profilEmailLabel" layoutX="250.0" layoutY="92.0" maxHeight="15.0" maxWidth="100.0" minHeight="15.0" minWidth="100.0" prefHeight="15.0" prefWidth="100.0" />
+                <Button layoutX="430.0" layoutY="80.0" mnemonicParsing="false" onAction="#insertLista" text="Új lista létrehozás" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</TitledPane>
